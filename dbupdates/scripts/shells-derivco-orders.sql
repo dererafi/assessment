@@ -90,11 +90,11 @@ begin
     from (
             select EmployeeFullName, ShipperCompanyName, CustomerCompanyName, NumberOfOrders, Date, TotalFreightCost, TotalOrderValue, NumberOfDifferentProducts, ID
             from CustomerCTE cust
-            where cust.ID = @CustomerID --and cust.Date <= @StartDate and cust.Date >= @EndDate
+            where cust.ID = @CustomerID and cust.Date <= @StartDate and cust.Date >= @EndDate
             union all
             select EmployeeFullName, ShipperCompanyName, CustomerCompanyName, NumberOfOrders, Date, TotalFreightCost, TotalOrderValue ,NumberOfDifferentProducts, ID
             from EmployeeCTE emp
-            where emp.ID = @EmployeeID --and emp.Date <= @StartDate and emp.Date >= @EndDate
+            where emp.ID = @EmployeeID and emp.Date <= @StartDate and emp.Date >= @EndDate
          ) as dataset
 
     select * from @OrderSummary

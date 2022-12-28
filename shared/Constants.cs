@@ -30,8 +30,8 @@ public static class  Constants
     
     public static class BoardArea
     {
-        public const string Inside = "INSIDE";
-        public const string Outside = "OUTSIDE";
+        public const string Inside = "Inside";
+        public const string Outside = "Outside";
     }
 
     public static class MoveType

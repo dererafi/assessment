@@ -41,4 +41,6 @@ app.UseSwaggerUI(options =>
 
 app.UseAuthorization();
 
+app.MapGet("/", () => "WEB API is up and running. Navigate to https://localhost:7036/api/game/");
+
 app.Run();

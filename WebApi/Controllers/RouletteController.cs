@@ -18,10 +18,10 @@ public class RouletteController : ControllerBase
         _mapper = mapper;
     }
     
-    [HttpGet("placeBet")]
-    public async Task<IActionResult> PlaceBet(string playerId, string boardArea, string bet, List<string> moves)
+    [HttpPost("placeBet")]
+    public async Task<IActionResult> PlaceBet(string playerId, string boardArea, string bet, string[] moves)
     {
-        var playerBetDto =  _betMoveService.GetBoardAreaBetDetails(boardArea,  playerId,  bet,  moves);
+        var playerBetDto =  _betMoveService.GetBoardAreaBetDetails(boardArea,  playerId,  bet,  new List<string>(moves));
         var result = await _mapper.Save(new List<PlayerBetDto>() {playerBetDto});
         return Ok(result);
     }
