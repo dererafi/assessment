@@ -17,4 +17,4 @@ script is executable against the AdventureWorks2016 Db
    - playerId e.g 'Player1' 
    - boardArea e.g 'Inside' or 'Outside'
    - outside bets e.g: 'Even' or 'Odd' etc (for inside bets this should be null)
-   - in the request body enter an array of strings e.g "[1,3,5,7]" (for outside move this should be blank)
+   - in the request body enter an array of strings e.g ["1","3","5","7"] (for outside move this should be blank)
