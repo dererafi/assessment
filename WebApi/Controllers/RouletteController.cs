@@ -19,9 +19,9 @@ public class RouletteController : ControllerBase
     }
     
     [HttpPost("placeBet")]
-    public async Task<IActionResult> PlaceBet(string playerId, string boardArea, string bet, string[] moves)
+    public async Task<IActionResult> PlaceBet([FromBody] PlayerBetViewModel playerBetViewModel)
     {
-        var playerBetDto =  _betMoveService.GetBoardAreaBetDetails(boardArea,  playerId,  bet,  new List<string>(moves));
+        var playerBetDto =  _betMoveService.GetBoardAreaBetDetails(playerBetViewModel.BoardArea, playerBetViewModel.PlayerId,  playerBetViewModel.Bet,  playerBetViewModel.Moves);
         var result = await _mapper.Save(new List<PlayerBetDto>() {playerBetDto});
         return Ok(result);
     }

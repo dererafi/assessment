@@ -19,6 +19,7 @@ public class BetMoveService : IBetMoveService
         var evenMoves = Constants.Moves.Out[bet];
         return new PlayerBetDto()
         {
+            BoardArea = Constants.BoardArea.Outside,
             PlayerId = playerId,
             Moves = new Dictionary<string, List<string>>(){ {key, evenMoves} },
             PayOut =  new Dictionary<string, string> { {key, Constants.PayOut.Move[key] } }
@@ -31,6 +32,7 @@ public class BetMoveService : IBetMoveService
         var key = Constants.Moves.In[numberOfMoves].FirstOrDefault();
         return new PlayerBetDto()
         {
+            BoardArea = Constants.BoardArea.Inside,
             PlayerId = playerId,
             Moves = new Dictionary<string, List<string>>(){ {key, moves} },
             PayOut =  new Dictionary<string, string>{ {key, Constants.PayOut.Move[key]} }
